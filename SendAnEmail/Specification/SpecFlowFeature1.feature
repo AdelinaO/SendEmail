@@ -1,11 +1,27 @@
 ﻿Feature: Gmail login
+In order to write an email
+As a simple user
+I want to send an email
 
-Scenario: Login to the gmail
+Scenario Outline: Login to the gmail
 
-  Given I navigated to gmail page
-  When  I choose 'Use another account' option (#identifierLink > div.vdE7Oc.f3GIQ) (//*[@id="identifierLink"]/div[2] xpath)
-  And   I type the email (#identifierId)(//*[@id="identifierId"] xpath)
-  And   I execute the next button (#identifierNext > content > span)(//*[@id="identifierNext"]/content xpath)
-  And   I type the password (#password > div.aCsJod.oJeWuf > div > div.Xb9hP > input)(//*[@id="password"]/div[1]/div/div[1]/input xpath)
-  And   I execute the next button (#passwordNext > content)(//*[@id="passwordNext"]/content xpath)
-  Then  I should be logged in --assert
+  Given I navigated to Gmail page
+  When  I choose 'Use another account' option
+  And   I type the email adress "<oprea.adelina91@gmail.com>"
+  
+   Examples: 
+
+   | Field        | Value                     |
+   | email adress | oprea.adelina91@gmail.com |
+  
+  #I execute the next button     
+  And   I continue
+  And   I type the password
+
+   Examples: 
+  
+   | Field        | Value                     |
+   | password     | Aeiou1690.                |
+
+  And   I keep continue
+  Then  I should be logged in

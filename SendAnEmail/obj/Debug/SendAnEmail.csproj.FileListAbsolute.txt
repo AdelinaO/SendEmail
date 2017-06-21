@@ -1,0 +1,1 @@
+C:\Users\Adel\Documents\Visual Studio 2017\Projects\SendAnEmail\SendAnEmail\obj\Debug\SendAnEmail.csprojResolveAssemblyReference.cache
