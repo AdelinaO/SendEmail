@@ -1,10 +1,11 @@
-﻿namespace SendAnEmail.StepDefinition
+﻿namespace SendAnEmail.StepDefinitions
 {
-    using TechTalk.SpecFlow;
-    using SendAnEmail.Page;
-    using Specflow.FluentAutomation;
-    using Page;
-    using Specflow.FluentAutomation.Ext;
+  using TechTalk.SpecFlow;
+  using SendAnEmail.Page;
+  using Specflow.FluentAutomation;
+  using Page;
+  using Specflow.FluentAutomation.Ext;
+
 
     [Binding]
     public class GmailLoginSteps
@@ -15,40 +16,42 @@
             Pages.Get<HomePage>().Go();
         }
         
-        [When(@"I choose '(.*)' option")]
-        public void WhenIChooseOption(string p0)
+        [When(@"I choose Use another account option")]
+        public void WhenIChooseUseAnotherAccountOption()
         {
             Pages.Get<HomePage>().Register();
         }
         
-        [When(@"I type the email adress ""(.*)""")]
-        public void WhenITypeTheEmailAdress(string p0)
+        [Then(@"I type the ""(.*)""")]
+        public void ThenITypeThe(string p0)
         {
-            ScenarioContext.Current.Pending();
+            Pages.Get<HomePage>().TypeEmail();
         }
         
-        [When(@"I continue")]
-        public void WhenIContinue()
+        [Then(@"I continue")]
+        public void ThenIContinue()
         {
-            ScenarioContext.Current.Pending();
+            Pages.Get<HomePage>().GoNext();
         }
-        
-        [When(@"I type the password")]
-        public void WhenITypeThePassword()
+
+        [Then(@"I type again, the ""(.*)""")]
+        public void ThenITypeAgainThe(string p0)
         {
-            ScenarioContext.Current.Pending();
+            Pages.Get<HomePage>().TypePassword();
+
         }
-        
-        [When(@"I keep continue")]
-        public void WhenIKeepContinue()
+
+
+        [Then(@"I keep continue")]
+        public void ThenIKeepContinue()
         {
-            ScenarioContext.Current.Pending();
+            Pages.Get<HomePage>().GoNextAgain();
         }
         
         [Then(@"I should be logged in")]
         public void ThenIShouldBeLoggedIn()
         {
-            ScenarioContext.Current.Pending();
+            Pages.Get<HomePage>().IExpectExists();
         }
     }
 }
